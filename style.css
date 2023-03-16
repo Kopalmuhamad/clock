@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Poppins',sans-serif;
+}
+
+.f-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #acbaca;
+}
+
+.clock {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: #c9d5e0;
+    box-shadow: 10px 10px 8px -1px rgba(0,0,0,0.25), 
+    10px 10px 8px -1px rgba(0,0,0,0.25) inset;
+    -webkit-box-shadow: 10px 10px 8px -1px rgba(0,0,0,0.25), 
+    10px 10px 8px -1px rgba(0,0,0,0.25) inset;
+    -moz-box-shadow: 10px 10px 8px -1px rgba(0,0,0,0.25), 
+    10px 10px 8px -1px rgba(0,0,0,0.25) inset;
+}
+
+.clock::before {
+    content: '';
+    z-index: 101;
+    position: absolute;
+    background-color: #e91e63;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 2px rgba(255,255,255,1);
+    -webkit-box-shadow: 0px 0px 0px 2px rgba(255,255,255,1);
+    -moz-box-shadow: 0px 0px 0px 2px rgba(255,255,255,1);
+}
+
+.clock .numbers {
+    position: absolute;
+    inset: 35px;
+    background: #152b4a;
+    border-radius: 50%;
+    box-shadow: 10px 10px 8px -1px rgba(0,0,0,0.25), 
+    10px 10px 8px -1px rgba(0,0,0,0.25) inset;
+    -webkit-box-shadow: 10px 10px 8px -1px rgba(0,0,0,0.25), 
+    10px 10px 8px -1px rgba(0,0,0,0.25) inset;
+    -moz-box-shadow: 10px 10px 8px -1px rgba(0,0,0,0.25), 
+    10px 10px 8px -1px rgba(0,0,0,0.25) inset;
+    font-weight: 700;
+}
+
+.clock .numbers::before {
+    content: '';
+    position: absolute;
+    inset: 36px;
+    border-radius: 50%;
+    background: linear-gradient(#2196f3,#e91e63);
+    animation-name: circle;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes circle { 
+    0% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0);
+    }   
+}
+
+.clock .numbers::after {
+    content: '';
+    position: absolute;
+    inset: 39px;
+    border-radius: 50%;
+    background: #152b4a;
+}
+
+.clock .numbers span {
+    position: absolute;
+    inset: 5px;
+    text-align: center;
+    font-size: 1.25em;
+    color: #eaeaea;
+    transform: rotate(calc(30deg * var(--i)));
+}
+
+.numbers span b {
+    font-weight: 600;
+    display: inline-block;
+    transform: rotate(calc(-30deg * var(--i)));
+}
+
+.numbers .circle {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    z-index: 100;
+}   
+
+.numbers .circle i {
+    position: absolute;
+    width: 3px;
+    height: 50%;
+    background-color: #fff;
+    transform-origin: bottom;
+}
+
+.numbers .circle#hr i {
+    transform: scaleY(0.40);
+    width: 4px;
+    border-radius: 50% 50%;
+}
+
+.numbers .circle#mn i {
+    transform: scaleY(0.55);
+    border-radius: 50% 50%;
+}
+
+.numbers .circle#sc i {
+    transform: scaleY(0.65);
+    width: 2px;
+    background-color: #e91e63;
+    box-shadow: 0 30px 0 #e91e63;
+}
